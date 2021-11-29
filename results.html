@@ -41,20 +41,25 @@
             var can = document.getElementById("canvas")
             var dot = can.getContext("2d");
             var line = can.getContext("2d");
+            var ctx = can.getContext("2d");
+
+            var img = document.getElementById("thechart");
+            ctx.drawImage(img, 0, 0);
+
             dot.beginPath();
-            dot.arc((getX() + 408),(getY() + 525),15,0,2*Math.PI);
+            dot.arc((getX() + 420.5),(getY() + 530),15,0,2*Math.PI);
             dot.fillStyle = 'red';
             dot.fill();
             dot.stroke();
 
             dot.beginPath();
-            dot.arc((getX() + 408),(getZ() + 1427),15,0,2*Math.PI);
+            dot.arc((getX() + 420.5),(getZ() + 1440.5),15,0,2*Math.PI);
             dot.fillStyle = 'red';
             dot.fill();
             dot.stroke();
 
             dot.beginPath();
-            dot.arc((-getZ() + 408),(getY() + 2329),15,0,2*Math.PI);
+            dot.arc((-getZ() + 420.5),(getY() + 2350),15,0,2*Math.PI);
             dot.fillStyle = 'red';
             dot.fill();
             dot.stroke();
@@ -68,19 +73,19 @@
         function getZ()
         {
 
-            return (intGood * 17.2);
+            return (intGood * 17.55);
         }
 
         function getX()
         {
 
-            return (intLeft * 17.2);
+            return (intLeft * 17.55);
         }
 
         function getY()
         {
 
-            return (intUp * 17.5);
+            return (intUp * 17.55);
         }
 
         function calcX(x){
@@ -135,9 +140,9 @@
             center;
             background-image: url("chart.svg");
             background-size: auto;
-            width: 200%;
+            width: 1000%;
             max-height: 2750px;
-            max-width: 850px;
+            max-width: 845px;
         }
 
 
@@ -177,11 +182,12 @@
     <body style = background-color:black>
     <div class="container">
       <center>
-        <img src="triangle.png" alt="Political compass values" width = "30%">
+        <img src="triangle.png" id='thetriangle' alt="Political compass values" width = "30%">
+        <img src="chart.svg" id='thechart' alt="chart" width = "0%">
         </center>
         <div class="row">
           <center>
-            <div class="col-lg-8"><canvas id="canvas" height="2725" width="825"></canvas></div>
+            <div class="col-lg-8"><canvas id="canvas" height="2750" width="845"></canvas></div>
           </center>
         <div id='scores'>
             <p id='xValue'>Your X-score is: <span id='xScore'></span></p> <br>
